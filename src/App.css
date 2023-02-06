@@ -46,7 +46,7 @@ header img {
 }
 
 /* * section 1------------------------------------------------------------ */
-*/ .border {
+.border {
   border-bottom: 1px solid lightgrey;
 }
 .description {
@@ -185,6 +185,7 @@ header img {
   color: #ff8001;
   font-weight: bold;
 }
+
 .price {
   font-size: 19px;
 }
