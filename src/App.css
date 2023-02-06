@@ -10,8 +10,8 @@ et enfin import de font.css pour pouvoir l'utiliser dans App.css*/
   font-family: "IBM Plex Sans";
 }
 h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
+  font-family: " Roboto ", sans-serif;
+  font-weight: 400;
   font-size: 32px;
   font-style: normal;
   font-weight: bold;
@@ -26,11 +26,11 @@ h2 {
 
 h3 {
   font-family: "Roboto", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 18px;
   font-style: normal;
 }
-
+/* * header------------------------------------------------------------ */
 header {
   display: flex;
   align-items: center;
@@ -45,7 +45,8 @@ header img {
   height: 43px;
 }
 
-.border {
+/* * section 1------------------------------------------------------------ */
+*/ .border {
   border-bottom: 1px solid lightgrey;
 }
 .description {
@@ -80,36 +81,50 @@ header img {
   align-items: center;
 }
 
+/* section 2------------------------------------------------------------ */
 .secondSection {
   display: flex;
   padding-top: 40px;
-  height: 1500px;
+  height: auto;
   width: 100%;
   background-color: #f2f5f5;
 }
 
 .secondSectiontoMin {
   display: flex;
-  flex-wrap: wrap;
   height: auto;
   width: 70%;
   margin: 0 auto;
   /* background-color: pink; */
 }
-
-.menu {
+.columnToWrap {
+  /* background-color: violet; */
+  width: 1000px;
   display: flex;
   flex-direction: column;
-  height: auto;
-  /* border: 1px solid black; */
 }
 
+.columnToRow {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-bottom: 40px;
+}
+
+/* concerne la mise en page d'un menu -----------------------------*/
+.menu {
+  /* background-color: yellow; */
+  margin-right: 15px;
+  max-width: 410px;
+  height: 100%;
+  /* border: 1px solid black; */
+}
 .test {
   padding: 10px 10px 10px 10px;
   display: flex;
   background-color: #fff;
   height: 160px;
-  width: 400px;
+  width: 375px;
   margin-top: 30px;
   border-radius: 10px;
   /* border: 1px blue solid; */
@@ -120,12 +135,17 @@ header img {
   font-family: "IBM Plex Sans";
   height: 100%;
   width: 70%;
+
   /* background-color: greenyellow; */
 }
 
+.title {
+  line-height: 22px;
+}
 .description1 {
   font-size: 14px;
   color: gray;
+  line-height: 22px;
 }
 
 .firstColBloc {
@@ -138,11 +158,19 @@ header img {
   justify-content: flex-start;
 }
 
+.menu .description1 {
+  /* background-color: red; */
+  max-height: 70px;
+  /* pour cacher le contenu siu phrase trop grande */
+  overflow: hidden;
+}
+
 .priceAndPopular {
   display: flex;
   justify-content: flex-start;
   padding-left: 30px;
   gap: 25px;
+  color: grey;
 }
 .imgmenu {
   margin-top: 15px;
@@ -151,4 +179,12 @@ header img {
   object-fit: cover;
   border-radius: 10px;
   margin-left: 5px;
+}
+
+.orange {
+  color: #ff8001;
+  font-weight: bold;
+}
+.price {
+  font-size: 19px;
 }

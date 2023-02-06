@@ -33,7 +33,7 @@ function App() {
           <div className="col1">
             <h1>Le Pain Quotidien - Montorgueil</h1>
             <p>
-              Profitez de chaque plasir de la vie qutoidienne. Le pain Quotidien
+              Profitez de chaque plasir de la vie quotidienne. Le pain Quotidien
               propose des ingrédients simples et sains, du bon pain, des fruits
               et des légumes frais et de saison issus de l’agriculture
               biologique.
@@ -49,14 +49,27 @@ function App() {
           {isLoading ? (
             <p>En cours de chargement...</p>
           ) : (
-            <div>
+            <div className="columnToWrap">
               {data.categories.map((element, num) => {
                 console.log(element); // permettra de visualiser dans la console ce que représente `element`
                 return (
-                  <div>
-                    <Menu key={num} data={data} index={0} />
-                    <Menu key={num} data={data} index={4} />
-                    <Menu key={num} data={data} index={5} />
+                  <div key={num}>
+                    <div>
+                      <h2>{element.name}</h2>
+                    </div>
+                    <div className="columnToRow">
+                      {" "}
+                      {element.meals.map((elem, num2) => {
+                        console.log(elem);
+                        console.log(elem.name);
+
+                        return (
+                          <div key={num2}>
+                            <Menu elem={elem} />
+                          </div>
+                        );
+                      })}{" "}
+                    </div>
                   </div>
                 );
               })}
