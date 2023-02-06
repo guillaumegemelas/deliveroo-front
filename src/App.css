@@ -1,5 +1,59 @@
+/* ajout font: création dossier font avec ajouts fichiers eot,... 
+puis stylesheet.css à ajouter (ici font.css)
+et enfin import de font.css pour pouvoir l'utiliser dans App.css*/
+@import "./fonts.css";
+
+.App {
+  width: 70%;
+  /* background-color: rgb(247, 228, 231); */
+  margin: 0 auto;
+  font-family: "IBM Plex Sans";
+}
 h1 {
   font-family: "Stratos Deliveroo Web";
   font-weight: 600;
+  font-size: 32px;
   font-style: normal;
+}
+header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 57px;
+  /* background-color: rgb(172, 250, 250); */
+  border-bottom: 1px solid lightgrey;
+}
+
+header img {
+  height: 43px;
+}
+
+.description {
+  display: flex;
+  height: 250px;
+  /* background-color: greenyellow; */
+}
+.description p {
+  font-size: 19px;
+  color: grey;
+  padding-right: 20px;
+}
+.col1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  line-height: 27px;
+  /* background-color: rgb(232, 151, 151); */
+  width: 70%;
+}
+.col2 img {
+  width: 350px;
+  border-radius: 8px;
+}
+
+.col2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
