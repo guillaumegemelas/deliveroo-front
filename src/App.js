@@ -61,7 +61,7 @@ function App() {
                       {" "}
                       {element.meals.map((elem, num2) => {
                         console.log(elem);
-                        console.log(elem.name);
+                        // console.log(elem.name);
 
                         return (
                           <div key={num2}>
