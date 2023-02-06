@@ -2,6 +2,7 @@ import "./App.css";
 // import du package axios
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Menu from "./components/Menu";
 
 import logo from "./img/logo-teal.svg";
 import image1 from "./img/header-image.jpg";
@@ -45,37 +46,7 @@ function App() {
       </section>
       <section className="secondSection">
         <div className="secondSectiontoMin">
-          {isLoading ? (
-            <p>En cours de chargement...</p>
-          ) : (
-            <div className="menu">
-              <h2>{data.categories[0].name}</h2>
-              <div className="test">
-                <div className="composant">
-                  <div className="firstColBloc">
-                    <h3 className="title">
-                      {data.categories[0].meals[0].title}
-                    </h3>
-                    <p className="description1">
-                      {data.categories[0].meals[0].description}
-                    </p>
-                  </div>
-
-                  <div className="priceAndPopular">
-                    <p className="price">{data.categories[0].meals[0].price}</p>
-                    <p>
-                      {data.categories[0].meals[0].popular ? "popular⭐️" : ""}
-                    </p>
-                  </div>
-                </div>
-                <img
-                  className="imgmenu"
-                  src={data.categories[0].meals[0].picture}
-                  alt=""
-                />
-              </div>
-            </div>
-          )}
+          {isLoading ? <p>En cours de chargement...</p> : <Menu data={data} />}
         </div>
       </section>
     </div>
