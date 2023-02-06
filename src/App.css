@@ -10,21 +10,22 @@ et enfin import de font.css pour pouvoir l'utiliser dans App.css*/
   font-family: "IBM Plex Sans";
 }
 h1 {
-  font-family: "Stratos Deliveroo Web";
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 32px;
   font-style: normal;
+  font-weight: bold;
 }
 
 h2 {
-  font-family: "Stratos Deliveroo Web";
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 25px;
   font-style: normal;
 }
 
 h3 {
-  font-family: "Stratos Deliveroo Web";
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 18px;
   font-style: normal;
