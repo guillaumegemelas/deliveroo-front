@@ -3,10 +3,10 @@ puis stylesheet.css à ajouter (ici font.css)
 et enfin import de font.css pour pouvoir l'utiliser dans App.css*/
 @import "./fonts.css";
 
-.App {
-  width: 70%;
+.firstSection {
+  width: 100%;
   /* background-color: rgb(247, 228, 231); */
-  margin: 0 auto;
+
   font-family: "IBM Plex Sans";
 }
 h1 {
@@ -18,18 +18,24 @@ h1 {
 header {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
   height: 57px;
   /* background-color: rgb(172, 250, 250); */
-  border-bottom: 1px solid lightgrey;
+  /* border-bottom: 1px solid lightgrey; */
 }
 
 header img {
   height: 43px;
 }
 
+.border {
+  border-bottom: 1px solid lightgrey;
+}
 .description {
   display: flex;
+  width: 70%;
+  margin: 0 auto;
   height: 250px;
   /* background-color: greenyellow; */
 }
@@ -56,4 +62,9 @@ header img {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.secondSection {
+  height: 900px;
+  background-color: #f2f5f5;
 }
