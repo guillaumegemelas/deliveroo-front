@@ -1,24 +1,30 @@
-const Menu = ({ data }) => {
+const Menu = ({ data, index }) => {
   return (
     <div className="menu">
-      <h2>{data.categories[0].name}</h2>
+      <h2>{data.categories[index].name}</h2>
       <div className="test">
         <div className="composant">
           <div className="firstColBloc">
-            <h3 className="title">{data.categories[0].meals[0].title}</h3>
+            <h3 className="title">
+              {data.categories[index].meals[index].title}
+            </h3>
             <p className="description1">
-              {data.categories[0].meals[0].description}
+              {data.categories[index].meals[index].description}
             </p>
           </div>
 
           <div className="priceAndPopular">
-            <p className="price">{data.categories[0].meals[0].price}</p>
-            <p>{data.categories[0].meals[0].popular ? "popular⭐️" : ""}</p>
+            <p className="price">
+              {data.categories[index].meals[index].price}€
+            </p>
+            <p>
+              {data.categories[index].meals[index].popular ? "popular⭐️" : ""}
+            </p>
           </div>
         </div>
         <img
           className="imgmenu"
-          src={data.categories[0].meals[0].picture}
+          src={data.categories[index].meals[index].picture}
           alt=""
         />
       </div>

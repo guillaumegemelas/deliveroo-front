@@ -46,7 +46,22 @@ function App() {
       </section>
       <section className="secondSection">
         <div className="secondSectiontoMin">
-          {isLoading ? <p>En cours de chargement...</p> : <Menu data={data} />}
+          {isLoading ? (
+            <p>En cours de chargement...</p>
+          ) : (
+            <div>
+              {data.categories.map((element, num) => {
+                console.log(element); // permettra de visualiser dans la console ce que représente `element`
+                return (
+                  <div>
+                    <Menu key={num} data={data} index={0} />
+                    <Menu key={num} data={data} index={4} />
+                    <Menu key={num} data={data} index={5} />
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
     </div>
