@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import Menu from "./components/Menu";
 
 import logo from "./img/logo-teal.svg";
+import min from "./img/min.png";
+import plus from "./img/plus.png";
 import image1 from "./img/header-image.jpg";
 
 function App() {
@@ -117,6 +119,7 @@ function App() {
           {/* on passe à la seconde section, le panier qu'il va falloir incrémenter */}
           <section className="secondColumn">
             <div className="basket">
+              <div className="validate">valider mon panier</div>
               {basket.map((elem, num3) => {
                 return (
                   <div key={num3}>
@@ -132,7 +135,7 @@ function App() {
                             //   setBasket(basket);
                           }}
                         >
-                          -
+                          <img src={min} alt="" />
                         </button>
                         <span> {elem.quantity + 1}</span>
                         <button
@@ -145,7 +148,7 @@ function App() {
                             // setCounter(newCounter);
                           }}
                         >
-                          +
+                          <img src={plus} alt="" />
                         </button>
                       </div>
                       <div className="nameAndPrice">

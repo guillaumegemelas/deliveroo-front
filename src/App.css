@@ -98,7 +98,8 @@ header img {
 .secondColumn {
   width: 30%;
   /* background-color: burlywood; */
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  height: auto;
 }
 
 .secondSectiontoMin {
@@ -207,11 +208,30 @@ header img {
 
 .basket {
   margin-top: 10px;
+  background-color: #fff;
+  padding-top: 15px;
+  padding-bottom: 50px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 15px rgb(190, 188, 188);
+}
+
+.validate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 50px;
+  width: 95%;
+  background-color: #02cdbd;
+  color: white;
+  font-family: "IBM Plex Sans";
+  margin-bottom: 30px;
 }
 .qtyAndPrice {
   display: flex;
   /* background-color: #fff; */
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 .buttonsBasket {
   margin-left: 10px;
@@ -228,4 +248,11 @@ header img {
   /* background-color: red; */
   justify-content: space-between;
   font-family: "IBM Plex Sans";
+}
+.buttonsBasket img {
+  height: 18px;
+}
+.buttonsBasket button {
+  border: none;
+  background-color: #fff;
 }
