@@ -18,26 +18,34 @@ function App() {
   // const [tab, setTab] = useState([0]);
 
   //fonction pour stocker dans le tableau le contenu que l'on souhaite ajouter au panier
-  const handleSubmit = (elem) => {
-    // event.preventDefault();
-    const newBasket = [...basket];
-    newBasket.push({
-      name: elem.title,
-      price: elem.price,
-      isPresent: false,
-      quantity: 1,
-    });
-    setBasket(newBasket);
-    console.log(newBasket, "newbasket handlesubmit");
+
+  const handleSubmit = (elem, string) => {
+    let isPresent = false;
+    for (let i = 0; i < elem.length; i++) {
+      if (elem[i].title) {
+        isPresent = true;
+      }
+    }
+    if (!isPresent) {
+      const newBasket = [...basket];
+
+      newBasket.push({
+        name: elem.title,
+        price: elem.price,
+        quantity: 1,
+      });
+      setBasket(newBasket);
+      console.log(newBasket, "newbasket handlesubmit");
+    }
   };
 
   //pour checker si élément déj présent dans le panier(stock les infos du plat et de sa quantité)
-  const handleCheck = (elem) => {
-    const newBasket = [...basket];
-    newBasket[elem] = !newBasket[elem];
-    setBasket(newBasket);
-    console.log(newBasket, "newbasket handlecheck");
-  };
+  // const handleCheck = (elem) => {
+  //   const newBasket = [...basket];
+  //   newBasket[elem] = !newBasket[elem];
+  //   setBasket(newBasket);
+  //   console.log(newBasket, "newbasket handlecheck");
+  // };
   //-----------------------------------
 
   useEffect(() => {
@@ -122,42 +130,54 @@ function App() {
             )}
           </div>
           {/* on passe à la seconde section, le panier qu'il va falloir incrémenter */}
-
-          <div className="secondColumn">
-            {basket.map((elem, num3) => {
-              return (
-                <div key={num3}>
-                  <div>
-                    <p>{elem.name}</p>
-                    <p>{elem.price}</p>
+          <section className="secondColumn">
+            <div className="basket">
+              {basket.map((elem, num3) => {
+                return (
+                  <div key={num3}>
+                    <div className="qtyAndPrice">
+                      <div className="buttonsBasket">
+                        <button
+                          onClick={() => {
+                            console.log("j'ai cliqué sur le -");
+                            //   if (!elem.quantity) {
+                            //     elem.quantity = 1;
+                            //     setBasket(basket);
+                            //   } else elem.quantity--;
+                            //   setBasket(basket);
+                          }}
+                        >
+                          -
+                        </button>
+                        <span> {elem.quantity + 1}</span>
+                        <button
+                          onClick={() => {
+                            console.log("j'ai cliqué sur le +");
+                            counter[num3]++;
+                            setCounter(counter);
+                            // const newCounter = [...counter];
+                            // newCounter[index] = newCounter[index] + 1;
+                            // setCounter(newCounter);
+                          }}
+                        >
+                          +
+                        </button>
+                      </div>
+                      <div className="nameAndPrice">
+                        <div className="name">
+                          <p>{elem.name}</p>
+                        </div>
+                        <div className="price1">
+                          <p>{elem.price}€</p>
+                        </div>
+                        {/* <p>{elem.quantity}</p> */}
+                      </div>
+                    </div>
                   </div>
-
-                  <button
-                    onClick={() => {
-                      console.log("j'ai cliqué sur le -");
-                      counter[num3]--;
-                      setCounter(counter);
-
-                      // const newCounter = [...counter];
-                      // newCounter[index] = newCounter[index] - 1;
-                      // setCounter(newCounter);
-                    }}
-                  ></button>
-                  <span> {counter}</span>
-                  <button
-                    onClick={() => {
-                      console.log("j'ai cliqué sur le +");
-                      counter[num3]++;
-                      setCounter(counter);
-                      // const newCounter = [...counter];
-                      // newCounter[index] = newCounter[index] + 1;
-                      // setCounter(newCounter);
-                    }}
-                  ></button>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          </section>
         </div>
       </section>
     </div>
