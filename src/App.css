@@ -89,17 +89,27 @@ header img {
   width: 100%;
   background-color: #f2f5f5;
 }
+.global {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.secondColumn {
+  width: 30%;
+  /* background-color: burlywood; */
+  border: 1px solid black;
+}
 
 .secondSectiontoMin {
   display: flex;
   height: auto;
   width: 70%;
-  margin: 0 auto;
   /* background-color: pink; */
 }
 .columnToWrap {
   /* background-color: violet; */
-  width: 1000px;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -107,7 +117,6 @@ header img {
 .columnToRow {
   display: flex;
   flex-wrap: wrap;
-
   margin-bottom: 40px;
 }
 

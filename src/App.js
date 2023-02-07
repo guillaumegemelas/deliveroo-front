@@ -49,42 +49,45 @@ function App() {
         </section>
       </section>
       <section className="secondSection">
-        <div className="secondSectiontoMin">
-          {isLoading ? (
-            <p>En cours de chargement...</p>
-          ) : (
-            <div className="columnToWrap">
-              {/* on map sur la clé "catégories" de data */}
-              {data.categories.map((element, num) => {
-                // if nécessaire pour éviter d'afficher le scatégories qui n'ont pas de menu
-                if (element.meals.length !== 0) {
-                  console.log(element); // permettra de visualiser dans la console ce que représente `element`
-                  //dans ce cas, un tableau d'objet contenant "name" et "meals"
-                  return (
-                    <div key={num}>
-                      <div>
-                        {/* renvoie le type de menu: petit dej, brunch... */}
-                        <h2>{element.name}</h2>
-                      </div>
-                      <div className="columnToRow">
-                        {" "}
-                        {element.meals.map((elem, num2) => {
-                          console.log(elem);
-                          // on map sur la clé meals et on renvoie les valeurs;
+        <div className="global">
+          <div className="secondSectiontoMin">
+            {isLoading ? (
+              <p>En cours de chargement...</p>
+            ) : (
+              <div className="columnToWrap">
+                {/* on map sur la clé "catégories" de data */}
+                {data.categories.map((element, num) => {
+                  // if nécessaire pour éviter d'afficher le scatégories qui n'ont pas de menu
+                  if (element.meals.length !== 0) {
+                    console.log(element); // permettra de visualiser dans la console ce que représente `element`
+                    //dans ce cas, un tableau d'objet contenant "name" et "meals"
+                    return (
+                      <div key={num}>
+                        <div>
+                          {/* renvoie le type de menu: petit dej, brunch... */}
+                          <h2>{element.name}</h2>
+                        </div>
+                        <div className="columnToRow">
+                          {" "}
+                          {element.meals.map((elem, num2) => {
+                            console.log(elem);
+                            // on map sur la clé meals et on renvoie les valeurs;
 
-                          return (
-                            <div key={num2}>
-                              <Menu elem={elem} />
-                            </div>
-                          );
-                        })}{" "}
+                            return (
+                              <div key={num2}>
+                                <Menu elem={elem} />
+                              </div>
+                            );
+                          })}{" "}
+                        </div>
                       </div>
-                    </div>
-                  );
-                } else return null;
-              })}
-            </div>
-          )}
+                    );
+                  } else return null;
+                })}
+              </div>
+            )}
+          </div>
+          <div className="secondColumn">panier</div>
         </div>
       </section>
     </div>
