@@ -18,7 +18,7 @@ function App() {
   const handleSubmit = (elem) => {
     // event.preventDefault();
     const newBasket = [...basket];
-    newBasket.push({ name: elem });
+    newBasket.push({ name: elem.title, price: elem.price });
     setBasket(newBasket);
   };
 
