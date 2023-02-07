@@ -11,6 +11,23 @@ function App() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
+  //on va créer un state pour stocker le contenu du panier, à la base tableau vide
+  const [basket, setBasket] = useState([]);
+
+  //fonction pour stocker dans le tableau le contenu que l'on souhaite ajouter au panier
+  const handleSubmit = (elem) => {
+    // event.preventDefault();
+    const newBasket = [...basket];
+    newBasket.push({ name: elem });
+    setBasket(newBasket);
+  };
+
+  const handleCheck = () => {
+    const newBasket = [...basket];
+    newBasket(newBasket);
+  };
+  //-----------------------------------
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -59,7 +76,7 @@ function App() {
                 {data.categories.map((element, num) => {
                   // if nécessaire pour éviter d'afficher le scatégories qui n'ont pas de menu
                   if (element.meals.length !== 0) {
-                    console.log(element); // permettra de visualiser dans la console ce que représente `element`
+                    // console.log(element); // permettra de visualiser dans la console ce que représente `element`
                     //dans ce cas, un tableau d'objet contenant "name" et "meals"
                     return (
                       <div key={num}>
@@ -68,17 +85,22 @@ function App() {
                           <h2>{element.name}</h2>
                         </div>
                         <div className="columnToRow">
-                          {" "}
                           {element.meals.map((elem, num2) => {
-                            console.log(elem);
+                            // console.log(elem);
                             // on map sur la clé meals et on renvoie les valeurs;
 
                             return (
-                              <div key={num2}>
+                              <div
+                                key={num2}
+                                onClick={() => {
+                                  console.log(elem);
+                                  handleSubmit(elem);
+                                }}
+                              >
                                 <Menu elem={elem} />
                               </div>
                             );
-                          })}{" "}
+                          })}
                         </div>
                       </div>
                     );
@@ -87,7 +109,26 @@ function App() {
               </div>
             )}
           </div>
-          <div className="secondColumn">panier</div>
+          {/* on passe à la seconde section, le panier qu'il va falloir incrémenter */}
+
+          <div className="secondColumn">
+            {basket.map((elem, index) => {
+              return (
+                <div key={index}>
+                  <input
+                    // value={elem.description}
+
+                    key={index}
+                    type="text"
+                    onChange={() => {
+                      handleSubmit(elem);
+                    }}
+                  />
+                  <p>panier</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </div>
