@@ -160,7 +160,7 @@ header img {
 
 .menu .description1 {
   /* background-color: red; */
-  max-height: 70px;
+  max-height: 48px;
   /* pour cacher le contenu siu phrase trop grande */
   overflow: hidden;
 }

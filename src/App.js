@@ -56,6 +56,7 @@ function App() {
             <div className="columnToWrap">
               {/* on map sur la clé "catégories" de data */}
               {data.categories.map((element, num) => {
+                // if nécessaire pour éviter d'afficher le scatégories qui n'ont pas de menu
                 if (element.meals.length !== 0) {
                   console.log(element); // permettra de visualiser dans la console ce que représente `element`
                   //dans ce cas, un tableau d'objet contenant "name" et "meals"
