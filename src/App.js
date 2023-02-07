@@ -14,6 +14,9 @@ function App() {
   //on va créer un state pour stocker le contenu du panier, à la base tableau vide
   const [basket, setBasket] = useState([]);
 
+  const [counter, setCounter] = useState([0]);
+  // const [tab, setTab] = useState([0]);
+
   //fonction pour stocker dans le tableau le contenu que l'on souhaite ajouter au panier
   const handleSubmit = (elem) => {
     // event.preventDefault();
@@ -22,10 +25,10 @@ function App() {
     setBasket(newBasket);
   };
 
-  const handleCheck = () => {
-    const newBasket = [...basket];
-    newBasket(newBasket);
-  };
+  // const handleCheck = () => {
+  //   const newBasket = [...basket];
+  //   newBasket(newBasket);
+  // };
   //-----------------------------------
 
   useEffect(() => {
@@ -112,19 +115,40 @@ function App() {
           {/* on passe à la seconde section, le panier qu'il va falloir incrémenter */}
 
           <div className="secondColumn">
-            {basket.map((elem, index) => {
+            {basket.map((elem, num3) => {
               return (
-                <div key={index}>
-                  <input
-                    // value={elem.description}
-
-                    key={index}
-                    type="text"
+                <div key={num3}>
+                  <div
                     onChange={() => {
                       handleSubmit(elem);
                     }}
-                  />
-                  <p>panier</p>
+                  >
+                    <p>{elem.name}</p>
+                    <p>{elem.price}</p>
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      console.log("j'ai cliqué sur le -");
+                      counter[num3]--;
+                      setCounter(counter);
+
+                      // const newCounter = [...counter];
+                      // newCounter[index] = newCounter[index] - 1;
+                      // setCounter(newCounter);
+                    }}
+                  ></button>
+                  <span> {counter}</span>
+                  <button
+                    onClick={() => {
+                      console.log("j'ai cliqué sur le +");
+                      counter[num3]++;
+                      setCounter(counter);
+                      // const newCounter = [...counter];
+                      // newCounter[index] = newCounter[index] + 1;
+                      // setCounter(newCounter);
+                    }}
+                  ></button>
                 </div>
               );
             })}
