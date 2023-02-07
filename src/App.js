@@ -17,36 +17,19 @@ function App() {
   const [counter, setCounter] = useState([0]);
   // const [tab, setTab] = useState([0]);
 
-  //fonction pour stocker dans le tableau le contenu que l'on souhaite ajouter au panier
+  //fonction pour stocker dans le tableau le contenu que l'on souhaite ajouter au panier-----------
+  const handleSubmit = (elem) => {
+    const newBasket = [...basket];
 
-  const handleSubmit = (elem, string) => {
-    let isPresent = false;
-    for (let i = 0; i < elem.length; i++) {
-      if (elem[i].title) {
-        isPresent = true;
-      }
-    }
-    if (!isPresent) {
-      const newBasket = [...basket];
-
-      newBasket.push({
-        name: elem.title,
-        price: elem.price,
-        quantity: 1,
-      });
-      setBasket(newBasket);
-      console.log(newBasket, "newbasket handlesubmit");
-    }
+    newBasket.push({
+      name: elem.title,
+      price: elem.price,
+      quantity: 1,
+    });
+    setBasket(newBasket); // je copie le state panier
+    console.log(newBasket, "newbasket handlesubmit");
   };
-
-  //pour checker si élément déj présent dans le panier(stock les infos du plat et de sa quantité)
-  // const handleCheck = (elem) => {
-  //   const newBasket = [...basket];
-  //   newBasket[elem] = !newBasket[elem];
-  //   setBasket(newBasket);
-  //   console.log(newBasket, "newbasket handlecheck");
-  // };
-  //-----------------------------------
+  //-----------------------------------------------------
 
   useEffect(() => {
     const fetchData = async () => {
@@ -114,6 +97,8 @@ function App() {
                                 key={num2}
                                 onClick={() => {
                                   console.log(elem);
+                                  //lo log de l'ID propre à chaque elem:
+                                  console.log(elem.id);
                                   handleSubmit(elem);
                                 }}
                               >
