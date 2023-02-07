@@ -21,14 +21,23 @@ function App() {
   const handleSubmit = (elem) => {
     // event.preventDefault();
     const newBasket = [...basket];
-    newBasket.push({ name: elem.title, price: elem.price });
+    newBasket.push({
+      name: elem.title,
+      price: elem.price,
+      isPresent: false,
+      quantity: 1,
+    });
     setBasket(newBasket);
+    console.log(newBasket, "newbasket handlesubmit");
   };
 
-  // const handleCheck = () => {
-  //   const newBasket = [...basket];
-  //   newBasket(newBasket);
-  // };
+  //pour checker si élément déj présent dans le panier(stock les infos du plat et de sa quantité)
+  const handleCheck = (elem) => {
+    const newBasket = [...basket];
+    newBasket[elem] = !newBasket[elem];
+    setBasket(newBasket);
+    console.log(newBasket, "newbasket handlecheck");
+  };
   //-----------------------------------
 
   useEffect(() => {
@@ -57,10 +66,10 @@ function App() {
           <div className="col1">
             <h1>Le Pain Quotidien - Montorgueil</h1>
             <p>
-              Profitez de chaque plasir de la vie quotidienne. Le pain Quotidien
-              propose des ingrédients simples et sains, du bon pain, des fruits
-              et des légumes frais et de saison issus de l’agriculture
-              biologique.
+              Profitez de chaque plaisir de la vie quotidienne. Le pain
+              Quotidien propose des ingrédients simples et sains, du bon pain,
+              des fruits et des légumes frais et de saison issus de
+              l’agriculture biologique.
             </p>
           </div>
           <div className="col2">
@@ -118,11 +127,7 @@ function App() {
             {basket.map((elem, num3) => {
               return (
                 <div key={num3}>
-                  <div
-                    onChange={() => {
-                      handleSubmit(elem);
-                    }}
-                  >
+                  <div>
                     <p>{elem.name}</p>
                     <p>{elem.price}</p>
                   </div>
