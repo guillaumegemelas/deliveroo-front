@@ -19,7 +19,7 @@ function App() {
   const [counter, setCounter] = useState([0]);
   // const [tab, setTab] = useState([0]);
 
-  //fonction pour stocker dans le tableau le contenu que l'on souhaite ajouter au panier-----------
+  //---------fonction pour stocker dans le tableau le contenu que l'on souhaite ajouter au panier-----------
   const handleSubmit = (elem) => {
     const newBasket = [...basket];
 
@@ -119,7 +119,9 @@ function App() {
           {/* on passe à la seconde section, le panier qu'il va falloir incrémenter */}
           <section className="secondColumn">
             <div className="basket">
-              <div className="validate">valider mon panier</div>
+              <div className={!basket ? "validate" : "validate1"}>
+                valider mon panier
+              </div>
               {basket.map((elem, num3) => {
                 return (
                   <div key={num3}>
@@ -164,6 +166,11 @@ function App() {
                   </div>
                 );
               })}
+              <div>
+                {/* {basket.map((elem, num) => {
+                  return <p></p>;
+                })} */}
+              </div>
             </div>
           </section>
         </div>

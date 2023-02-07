@@ -206,8 +206,14 @@ header img {
 
 /* panier---------------------------------------------------- */
 
+.secondColumn {
+  /* background-color: red; */
+  max-width: 350px;
+}
+
 .basket {
   margin-top: 10px;
+  width: 100%;
   background-color: #fff;
   padding-top: 15px;
   padding-bottom: 50px;
@@ -216,6 +222,19 @@ header img {
 }
 
 .validate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 50px;
+  width: 95%;
+  background-color: grey;
+  color: white;
+  font-family: "IBM Plex Sans";
+  margin-bottom: 30px;
+}
+.validate1 {
   display: flex;
   justify-content: center;
   align-items: center;
