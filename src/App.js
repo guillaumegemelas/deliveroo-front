@@ -13,11 +13,15 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        "https://site--delivery-backend--zqfvjrr4byql.code.run"
-      );
-      setData(response.data);
-      setIsLoading(false);
+      try {
+        const response = await axios.get(
+          "https://site--delivery-backend--zqfvjrr4byql.code.run"
+        );
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.message);
+      }
     };
     fetchData();
   }, []);
@@ -50,18 +54,21 @@ function App() {
             <p>En cours de chargement...</p>
           ) : (
             <div className="columnToWrap">
+              {/* on map sur la clé "catégories" de data */}
               {data.categories.map((element, num) => {
                 console.log(element); // permettra de visualiser dans la console ce que représente `element`
+                //dans ce cas, un tableau d'objet contenant "name" et "meals"
                 return (
                   <div key={num}>
                     <div>
+                      {/* renvoie le type de menu: petit dej, brunch... */}
                       <h2>{element.name}</h2>
                     </div>
                     <div className="columnToRow">
                       {" "}
                       {element.meals.map((elem, num2) => {
                         console.log(elem);
-                        // console.log(elem.name);
+                        // on map sur la clé meals et on renvoie les valeurs;
 
                         return (
                           <div key={num2}>
