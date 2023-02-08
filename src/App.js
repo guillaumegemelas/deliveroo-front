@@ -192,7 +192,8 @@ function App() {
                 );
               })}
               <div className="totalPrice">
-                <p>Total: {total.toFixed(2)}€</p>
+                <p className="tot1">Total: </p>
+                <p className="tot2">{total.toFixed(2)}€</p>
               </div>
             </div>
           </section>
