@@ -16,22 +16,55 @@ function App() {
   //on va créer un state pour stocker le contenu du panier, à la base tableau vide
   const [basket, setBasket] = useState([]);
 
-  const [counter, setCounter] = useState([0]);
-  // const [tab, setTab] = useState([0]);
-
   //---------fonction pour stocker dans le tableau le contenu que l'on souhaite ajouter au panier-----------
   const handleSubmit = (elem) => {
+    //je dois vérifier si le plat sur lequel je clqiue est déjà dans le panier
     const newBasket = [...basket];
 
-    newBasket.push({
-      name: elem.title,
-      price: elem.price,
-      quantity: 1,
-    });
+    let isPresent = false;
+    for (let i = 0; i < newBasket.length; i++) {
+      if (newBasket[i].id === elem.id) {
+        newBasket[i].quantity++;
+        isPresent = true;
+        break;
+      }
+    }
+    if (isPresent === false) {
+      const basketCopy = { ...elem, quantity: 1 };
+      newBasket.push(basketCopy);
+    }
+
     setBasket(newBasket); // je copie le state panier
     console.log(newBasket, "newbasket handlesubmit");
   };
   //-----------------------------------------------------
+  // pour supprimer l'éléménent dans le panier: avec la méthode find()
+  const handleRemove = (elem) => {
+    const newBasket = [...basket];
+    const elemInBasket = newBasket.find((item) => item.id === elem.id);
+
+    //si clé qty vaut 1, je l'enlève du panier
+    if (elemInBasket.quantity === 1) {
+      const index = newBasket.indexOf(elemInBasket);
+      newBasket.splice(index, 1);
+    } else {
+      //sinon je décrémente sa clé qty
+      elemInBasket.quantity--;
+    }
+    setBasket(newBasket);
+  };
+  //---------------------------------------------------------
+  //TOTAL Price: pas besoin d'utiliser de state pour cela, se rafraichit à chaque
+  //changement
+  //en notion avancé, on pourrait faire total dans la second .map, ce qui
+  //éviterait le faire une boucle for ici (plus dry)
+
+  let total = 0;
+  for (let i = 0; i < basket.length; i++) {
+    total += basket[i].price * basket[i].quantity;
+  }
+
+  //----------------------------------------------------------
 
   useEffect(() => {
     const fetchData = async () => {
@@ -118,36 +151,29 @@ function App() {
           </div>
           {/* on passe à la seconde section, le panier qu'il va falloir incrémenter */}
           <section className="secondColumn">
+            {/* {basket.length ===0 ? "Votre Panier est vide" : div} */}
             <div className="basket">
               <div className={!basket ? "validate" : "validate1"}>
                 valider mon panier
               </div>
-              {basket.map((elem, num3) => {
+              {basket.map((elem) => {
                 return (
-                  <div key={num3}>
+                  <div key={elem.id}>
                     <div className="qtyAndPrice">
                       <div className="buttonsBasket">
                         <button
                           onClick={() => {
                             console.log("j'ai cliqué sur le -");
-                            //   if (!elem.quantity) {
-                            //     elem.quantity = 1;
-                            //     setBasket(basket);
-                            //   } else elem.quantity--;
-                            //   setBasket(basket);
+                            handleRemove(elem);
                           }}
                         >
                           <img src={min} alt="" />
                         </button>
-                        <span> {elem.quantity + 1}</span>
+                        <span> {elem.quantity}</span>
                         <button
                           onClick={() => {
                             console.log("j'ai cliqué sur le +");
-                            counter[num3]++;
-                            setCounter(counter);
-                            // const newCounter = [...counter];
-                            // newCounter[index] = newCounter[index] + 1;
-                            // setCounter(newCounter);
+                            handleSubmit(elem);
                           }}
                         >
                           <img src={plus} alt="" />
@@ -155,21 +181,18 @@ function App() {
                       </div>
                       <div className="nameAndPrice">
                         <div className="name">
-                          <p>{elem.name}</p>
+                          <p>{elem.title}</p>
                         </div>
                         <div className="price1">
-                          <p>{elem.price}€</p>
+                          <p>{(elem.price * elem.quantity).toFixed(2)}€</p>
                         </div>
-                        {/* <p>{elem.quantity}</p> */}
                       </div>
                     </div>
                   </div>
                 );
               })}
-              <div>
-                {/* {basket.map((elem, num) => {
-                  return <p></p>;
-                })} */}
+              <div className="totalPrice">
+                <p>Total: {total.toFixed(2)}€</p>
               </div>
             </div>
           </section>

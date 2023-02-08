@@ -275,3 +275,11 @@ header img {
   border: none;
   background-color: #fff;
 }
+
+.totalPrice {
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+  background-color: pink;
+  border-top: 1px solid black;
+}
