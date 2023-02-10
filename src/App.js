@@ -153,7 +153,7 @@ function App() {
           <section className="secondColumn">
             {/* {basket.length ===0 ? "Votre Panier est vide" : div} */}
             <div className="basket">
-              <div className={!basket ? "validate" : "validate1"}>
+              <div className={basket.length === 0 ? "validate" : "validate1"}>
                 valider mon panier
               </div>
               {basket.map((elem) => {
@@ -191,10 +191,13 @@ function App() {
                   </div>
                 );
               })}
-              <div className="totalPrice">
-                <p className="tot1">Total: </p>
-                <p className="tot2">{total.toFixed(2)}€</p>
-              </div>
+              <div></div>
+              {basket.length > 0 && (
+                <div className="totalPrice">
+                  <p className="tot1">Total: </p>
+                  <p className="tot2">{total.toFixed(2)}€</p>
+                </div>
+              )}
             </div>
           </section>
         </div>
