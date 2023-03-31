@@ -388,8 +388,7 @@ header img {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    /* max-width: 410px; */
+    max-width: 410px;
     height: 100%;
     /* border: 1px solid black; */
   }
@@ -401,7 +400,6 @@ header img {
     width: 90vw;
     margin-top: 30px;
     border-radius: 10px;
-    /* border: 1px blue solid; */
     box-shadow: 1px 1px 15px rgb(190, 188, 188);
   }
 }
