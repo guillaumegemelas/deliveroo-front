@@ -388,7 +388,7 @@ header img {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 0vw;
+    width: 100vw;
     /* max-width: 410px; */
     height: 100%;
     /* border: 1px solid black; */
