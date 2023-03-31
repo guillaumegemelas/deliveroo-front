@@ -118,7 +118,7 @@ function App() {
                     //dans ce cas, un tableau d'objet contenant "name" et "meals"
                     return (
                       <div key={num}>
-                        <div>
+                        <div className="h2menu">
                           {/* renvoie le type de menu: petit dej, brunch... */}
                           <h2>{element.name}</h2>
                         </div>

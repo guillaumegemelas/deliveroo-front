@@ -107,6 +107,7 @@ header img {
   height: auto;
   width: 70%;
   /* background-color: pink; */
+  /* background-color: violet; */
 }
 .columnToWrap {
   /* background-color: violet; */
@@ -128,6 +129,10 @@ header img {
   max-width: 410px;
   height: 100%;
   /* border: 1px solid black; */
+}
+.h2menu {
+  /* background-color: #fff; */
+  text-align: center;
 }
 .test {
   padding: 10px 10px 10px 10px;
@@ -348,16 +353,10 @@ header img {
     width: 90vw;
   }
   .columnToRow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 40px;
     /* background-color: #02cdbd; */
   }
   .columnToWrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     /* background-color: #ff8001; */
   }
   .basket {
@@ -382,5 +381,26 @@ header img {
     flex-direction: column-reverse;
     /* background-color: blue; */
     width: 90vw;
+  }
+  .menu {
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    max-width: 410px;
+    height: 100%;
+    /* border: 1px solid black; */
+  }
+  .test {
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    /* background-color: blue; */
+    height: 160px;
+    width: 90%;
+    margin-top: 30px;
+    border-radius: 10px;
+    /* border: 1px blue solid; */
+    box-shadow: 1px 1px 15px rgb(190, 188, 188);
   }
 }
