@@ -386,16 +386,16 @@ header img {
     justify-content: center;
     align-items: center;
     width: 90vw;
-    max-width: 410px;
+    /* max-width: 410px; */
     height: 100%;
     /* border: 1px solid black; */
   }
   .test {
     padding: 10px 10px 10px 10px;
     display: flex;
-    /* background-color: blue; */
+    background-color: blue;
     height: 160px;
-    width: 90%;
+    width: 90vw;
     margin-top: 30px;
     border-radius: 10px;
     /* border: 1px blue solid; */
