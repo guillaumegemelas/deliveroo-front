@@ -350,9 +350,13 @@ header img {
   /* partie panier et choix */
   .secondSectiontoMin {
     /* background-color: #02cdbd; */
-    width: 90vw;
+    width: 100vw;
   }
   .columnToRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 40px;
     /* background-color: #02cdbd; */
   }
@@ -368,7 +372,7 @@ header img {
     margin-bottom: 50px;
   }
   .secondColumn {
-    width: 100vw;
+    width: 90vw;
   }
 
   .global {
@@ -377,14 +381,14 @@ header img {
     align-items: center;
     flex-direction: column-reverse;
     /* background-color: blue; */
-    width: 90vw;
+    width: 100vw;
   }
   .menu {
     /* background-color: yellow; */
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90vw;
+    width: 0vw;
     /* max-width: 410px; */
     height: 100%;
     /* border: 1px solid black; */
@@ -392,7 +396,7 @@ header img {
   .test {
     padding: 10px 10px 10px 10px;
     display: flex;
-    background-color: blue;
+    /* background-color: blue; */
     height: 160px;
     width: 90vw;
     margin-top: 30px;
