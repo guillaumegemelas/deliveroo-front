@@ -87,7 +87,7 @@ header img {
   padding-top: 40px;
   height: auto;
   width: 100%;
-  background-color: #f2f5f5;
+  background-color: #f7f8f8;
 }
 .global {
   display: flex;
@@ -138,6 +138,7 @@ header img {
   margin-top: 30px;
   border-radius: 10px;
   /* border: 1px blue solid; */
+  box-shadow: 1px 1px 15px rgb(190, 188, 188);
 }
 .composant {
   display: flex;
@@ -219,6 +220,7 @@ header img {
   padding-bottom: 50px;
   border-radius: 10px;
   box-shadow: 1px 1px 15px rgb(190, 188, 188);
+  /* background-color: #ff8001; */
 }
 
 .validate {
@@ -249,7 +251,8 @@ header img {
 }
 .qtyAndPrice {
   display: flex;
-  /* background-color: #fff; */
+  width: 100%;
+  /* background-color: #ff8001; */
   margin-bottom: 25px;
 }
 .buttonsBasket {
@@ -294,4 +297,90 @@ header img {
 }
 .tot2 {
   padding-right: 6px;
+}
+
+/*===================media queries=========*/
+
+@media (max-width: 1000px) {
+  /* partie description resto */
+  .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: auto;
+    /* background-color: greenyellow; */
+  }
+  .col1 {
+    margin-bottom: 50px;
+    width: 80vw;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto;
+    height: 57px;
+    /* background-color: rgb(172, 250, 250); */
+    /* border-bottom: 1px solid lightgrey; */
+  }
+  header img {
+    height: 25px;
+    margin-left: 0;
+  }
+  .qtyAndPrice {
+    display: flex;
+    width: 100%;
+    /* background-color: #ff8001; */
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 750px) {
+  /* partie panier et choix */
+  .secondSectiontoMin {
+    /* background-color: #02cdbd; */
+    width: 90vw;
+  }
+  .columnToRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    /* background-color: #02cdbd; */
+  }
+  .columnToWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #ff8001; */
+  }
+  .basket {
+    margin-top: 10px;
+
+    background-color: #fff;
+    padding-top: 15px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 15px rgb(190, 188, 188);
+    /* background-color: lightcoral; */
+    margin-bottom: 50px;
+  }
+  .secondColumn {
+    width: 80vw;
+  }
+
+  .global {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    /* background-color: blue; */
+    width: 90vw;
+  }
 }
