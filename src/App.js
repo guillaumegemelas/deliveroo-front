@@ -52,6 +52,7 @@ function App() {
       elemInBasket.quantity--;
     }
     setBasket(newBasket);
+    console.log(newBasket, "newbasket handRemove");
   };
   //---------------------------------------------------------
   //TOTAL Price: pas besoin d'utiliser de state pour cela, se rafraichit à chaque
@@ -70,7 +71,8 @@ function App() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://site--deliveroo-back--zqfvjrr4byql.code.run/"
+          // "https://site--deliveroo-back--zqfvjrr4byql.code.run/"
+          "http://localhost:3000/"
         );
         setData(response.data);
         setIsLoading(false);
@@ -131,9 +133,9 @@ function App() {
                               <div
                                 key={num2}
                                 onClick={() => {
-                                  console.log(elem);
+                                  console.log(elem, "log de elem");
                                   //lo log de l'ID propre à chaque elem:
-                                  console.log(elem.id);
+                                  console.log(elem.id, "log elem id");
                                   handleSubmit(elem);
                                 }}
                               >
